@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "HerPitch",
+    "slug": "herpitch",
+    "version": "1.0.0",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#C2185B"
+    },
+    "android": {
+      "package": "com.herpitch.app",
+      "versionCode": 1,
+      "softwareKeyboardLayoutMode": "resize",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#C2185B"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.herpitch.app",
+      "buildNumber": "1"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "750995f5-f387-4c12-863f-8be9987a27e1"
+      }
+    }
+  }
+}
