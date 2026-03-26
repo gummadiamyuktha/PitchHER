@@ -777,10 +777,9 @@ const ctStyles = StyleSheet.create({
 export default function PlayerDetailScreen() {
   const { player: playerParam } = useLocalSearchParams();
   const router = useRouter();
-  const [player, setPlayer]     = useState(null);
-  const [loading, setLoading]   = useState(true);
+  const [player, setPlayer]         = useState(null);
+  const [loading, setLoading]       = useState(true);
   const [showAvatar, setShowAvatar] = useState(false);
-
 
   useEffect(() => {
     async function fetchPlayer() {
@@ -813,11 +812,12 @@ export default function PlayerDetailScreen() {
   const role        = normalizeRole(player.role);
   const accentColor = ROLE_ACCENT[role] || '#333';
   const bgColor     = ROLE_COLORS[role] || '#F5F5F5';
+  const textColor   = '#111';
+  const subColor    = '#888';
   const key         = player.name?.toLowerCase().replace(/\s/g, "_");
 
-
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+    <ScrollView style={[styles.container, { backgroundColor: bgColor }]} contentContainerStyle={styles.content}>
       <TouchableOpacity style={styles.backBtn} onPress={() => router.back()}>
         <Text style={styles.backText}>← Back</Text>
       </TouchableOpacity>
@@ -827,26 +827,25 @@ export default function PlayerDetailScreen() {
           const isOpening = !showAvatar;
           setShowAvatar(isOpening);
           if (isOpening) {
-            const speakName = PHONETIC_NAMES[player.name] || player.name;
             Speech.stop();
             Speech.speak(
-              `Hey! I am ${speakName}. Tap to explore my stats!`,
+              `Hey! Tap to explore my stats!`,
               { language: 'en-IN', rate: 0.85, pitch: 1.1 }
             );
           }
         }}>
           <Image source={showAvatar ? require("../assets/images/avatar.png") : PLAYER_IMAGES[key]} style={styles.playerImage} />
         </TouchableOpacity>
-        <Text style={styles.heroName}>{(player.name || player.docId || '').replace(/_/g, ' ').toUpperCase()}</Text>
+        <Text style={[styles.heroName, { color: textColor }]}>{player.name || player.docId}</Text>
         <View style={[styles.roleBadge, { backgroundColor: accentColor }]}>
           <Text style={styles.roleText}>{role}</Text>
         </View>
         <View style={styles.infoGrid}>
-          {player.dob && <View style={styles.infoRow}><Text style={[styles.infoLabel,{color:'#888'}]}>🎂 Born</Text><Text style={[styles.infoValue,{color:'#222'}]}>{player.dob}</Text></View>}
-          {(player.current_team || player.current_teams) && <View style={styles.infoRow}><Text style={[styles.infoLabel,{color:'#888'}]}>🏏 Teams</Text><Text style={[styles.infoValue,{color:'#222'}]}>{player.current_team || player.current_teams}</Text></View>}
-          {player.batting_style && <View style={styles.infoRow}><Text style={[styles.infoLabel,{color:'#888'}]}>🏏 Batting</Text><Text style={[styles.infoValue,{color:'#222'}]}>{player.batting_style}</Text></View>}
-          {player.bowling_style && <View style={styles.infoRow}><Text style={[styles.infoLabel,{color:'#888'}]}>🏐 Bowling</Text><Text style={[styles.infoValue,{color:'#222'}]}>{player.bowling_style}</Text></View>}
-          {player.home_city && <View style={styles.infoRow}><Text style={[styles.infoLabel,{color:'#888'}]}>📍 City</Text><Text style={[styles.infoValue,{color:'#222'}]}>{player.home_city}</Text></View>}
+          {player.dob && <View style={styles.infoRow}><Text style={[styles.infoLabel, { color: subColor }]}>🎂 Born</Text><Text style={[styles.infoValue, { color: textColor }]}>{player.dob}</Text></View>}
+          {(player.current_team || player.current_teams) && <View style={styles.infoRow}><Text style={[styles.infoLabel, { color: subColor }]}>🏏 Teams</Text><Text style={[styles.infoValue, { color: textColor }]}>{player.current_team || player.current_teams}</Text></View>}
+          {player.batting_style && <View style={styles.infoRow}><Text style={[styles.infoLabel, { color: subColor }]}>🏏 Batting</Text><Text style={[styles.infoValue, { color: textColor }]}>{player.batting_style}</Text></View>}
+          {player.bowling_style && <View style={styles.infoRow}><Text style={[styles.infoLabel, { color: subColor }]}>🏐 Bowling</Text><Text style={[styles.infoValue, { color: textColor }]}>{player.bowling_style}</Text></View>}
+          {player.home_city && <View style={styles.infoRow}><Text style={[styles.infoLabel, { color: subColor }]}>📍 City</Text><Text style={[styles.infoValue, { color: textColor }]}>{player.home_city}</Text></View>}
         </View>
       </View>
 
