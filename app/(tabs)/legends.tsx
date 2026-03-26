@@ -144,7 +144,7 @@ function StoryModal({ players, startIdx, onClose }: { players: any[]; startIdx: 
               }
             </View>
             <View>
-              <Text style={{ color: '#FFF', fontWeight: '800', fontSize: 17 }}>{player?.name}</Text>
+              <Text style={{ color: '#FFF', fontWeight: '800', fontSize: 17 }}>{(player?.name || '').replace(/_/g, ' ').toUpperCase()}</Text>
               <Text style={{ color: accent, fontSize: 12, fontWeight: '600', marginTop: 2 }}>
                 {player?.nickname} • {player?.careerSpan}
               </Text>
@@ -369,7 +369,7 @@ export default function LegendsScreen() {
                 </View>
                 <View style={{ flex: 1 }}>
                   <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Text style={{ fontWeight: '800', color: '#111', fontSize: 16, flex: 1 }} numberOfLines={1}>{item.name}</Text>
+                    <Text style={{ fontWeight: '800', color: '#111', fontSize: 16, flex: 1 }} numberOfLines={1}>{(item.name || '').replace(/_/g, ' ').toUpperCase()}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
                       <TouchableOpacity
                         onPress={(e) => { e.stopPropagation(); toggleFav(item.id); }}

@@ -837,7 +837,7 @@ export default function PlayerDetailScreen() {
         }}>
           <Image source={showAvatar ? require("../assets/images/avatar.png") : PLAYER_IMAGES[key]} style={styles.playerImage} />
         </TouchableOpacity>
-        <Text style={styles.heroName}>{player.name || player.docId}</Text>
+        <Text style={styles.heroName}>{(player.name || player.docId || '').replace(/_/g, ' ').toUpperCase()}</Text>
         <View style={[styles.roleBadge, { backgroundColor: accentColor }]}>
           <Text style={styles.roleText}>{role}</Text>
         </View>

@@ -187,7 +187,7 @@ function StoryModal({ players, startIdx, onClose }) {
                   </View>
               }
             </View>
-            <Text style={{ color: '#FFF', fontSize: 22, fontWeight: '800' }}>{player.name}</Text>
+            <Text style={{ color: '#FFF', fontSize: 22, fontWeight: '800' }}>{(player.name || '').replace(/_/g, ' ').toUpperCase()}</Text>
             <View style={{ backgroundColor: accent, borderRadius: 16, paddingHorizontal: 14, paddingVertical: 4, marginTop: 6 }}>
               <Text style={{ color: '#FFF', fontSize: 12, fontWeight: '700' }}>{role}</Text>
             </View>
@@ -359,7 +359,7 @@ export default function SeniorsScreen() {
         activeOpacity={0.75}
       >
         <View style={styles.cardHeader}>
-          <Text style={styles.playerName} numberOfLines={1}>{item.name || item.docId}</Text>
+          <Text style={styles.playerName} numberOfLines={1}>{(item.name || item.docId || '').replace(/_/g, ' ').toUpperCase()}</Text>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
             <TouchableOpacity
               onPress={e => { e.stopPropagation(); toggleFav(item.docId); }}
