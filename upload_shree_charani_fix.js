@@ -5,7 +5,7 @@ const { initializeApp } = require('firebase/app');
 const { getFirestore, doc, updateDoc } = require('firebase/firestore');
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBvNvCujd92uA7pCp88XB79vKMwOiZZ0Rc",
+  apiKey: "****************************",
   authDomain: "strikher-2b7ae.firebaseapp.com",
   projectId: "strikher-2b7ae",
   storageBucket: "strikher-2b7ae.firebasestorage.app",
