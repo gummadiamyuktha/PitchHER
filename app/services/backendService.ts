@@ -1,5 +1,5 @@
 // Backend API Service
-const BACKEND_URL = 'http://192.168.1.164:3001'; // Change IP to your computer IP
+const BACKEND_URL = '--------------'; // Change IP to your computer IP
 
 export interface PlayerStats {
   odi?: {
