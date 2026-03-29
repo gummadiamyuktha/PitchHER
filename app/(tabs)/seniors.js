@@ -25,7 +25,7 @@ import PitchPalButton from '../../components/PitchPalButton';
 import { PLAYER_IMAGES } from '../../data/playerImages';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBvNvCujd92uA7pCp88XB79vKMwOiZZ0Rc",
+  apiKey: "**********",
   authDomain: "strikher-2b7ae.firebaseapp.com",
   projectId: "strikher-2b7ae",
   storageBucket: "strikher-2b7ae.firebasestorage.app",
